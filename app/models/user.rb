@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :authored_transactions, foreign_key: :author_id, class_name: 'Transaction'
+  has_many :authored_payments, foreign_key: :author_id, class_name: 'Payment'
   has_many :groups
 end
