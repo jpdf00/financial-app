@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'Associations' do
-    it { should have_many(:groups) }
-    it { should have_many(:authored_payments) }
+    it { should have_many(:groups).dependent(:destroy) }
+    it { should have_many(:authored_payments).with_foreign_key('author_id').class_name('Payment').dependent(:destroy) }
   end
 
   describe 'Name Validations' do

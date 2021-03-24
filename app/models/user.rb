@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :authored_payments, foreign_key: :author_id, class_name: 'Payment'
-  has_many :groups
+  has_many :authored_payments, foreign_key: :author_id, class_name: 'Payment', dependent: :destroy
+  has_many :groups, dependent: :destroy
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
   validates :name, presence: true, length: { in: 4..32 }

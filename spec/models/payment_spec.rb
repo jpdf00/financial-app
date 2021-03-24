@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Payment, type: :model do
   describe 'Associations' do
-    it { should belong_to(:author) }
-    it { should have_and_belong_to_many(:groups) }
+    it { should belong_to(:author).class_name('User') }
+    it { should have_many(:groups).through(:grouped_payments) }
   end
 
   describe 'Name Validations' do
