@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<td><%= @group.name %></td>
+<td><%= @group.icon %></td>
+<td><%= @group.created_at %></td>
+
 <%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<%= link_to 'Back', groups_path %> |
+<%= link_to 'Home', root_path %>

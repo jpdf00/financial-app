@@ -1,17 +1,21 @@
 class PaymentsController < ApplicationController
   before_action :set_payment, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /payments or /payments.json
   def index
     @payments = Payment.all
   end
 
+# GET /ungrouped_payments or /ungrouped_payments.json
   def ungrouped_index
     @payments = Payment.all
   end
 
   # GET /payments/1 or /payments/1.json
   def show
+    @groups = Group.all
+    @grouped_payment = GroupedPayment.new
   end
 
   # GET /payments/new
@@ -25,7 +29,7 @@ class PaymentsController < ApplicationController
 
   # POST /payments or /payments.json
   def create
-    @payment = Payment.new(payment_params)
+    @payment = current_user.authored_payments.new(payment_params)
 
     respond_to do |format|
       if @payment.save
@@ -68,6 +72,6 @@ class PaymentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def payment_params
-      params.fetch(:payment, {})
+      params.require(:payment).permit(:name, :amount)
     end
 end

@@ -1,6 +1,7 @@
 class GroupedPaymentsController < ApplicationController
   before_action :set_grouped_payment, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
+  
   # GET /grouped_payments or /grouped_payments.json
   def index
     @grouped_payments = GroupedPayment.all

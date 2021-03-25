@@ -1,4 +1,21 @@
 <p id="notice"><%= notice %></p>
 
+<td><%= @payment.name %></td>
+<td>$ <%= @payment.amount %></td>
+<td><%= @payment.created_at %></td>
+
+<div>
+<% @groups.each do |group| %>
+  <%= group.name %>
+  <%= form_for @grouped_payment do |f| %>
+    <%= f.hidden_field :group_id, value: group.id %>
+    <%= f.hidden_field :group_id, value: group.id %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
+</div>
+
 <%= link_to 'Edit', edit_payment_path(@payment) %> |
-<%= link_to 'Back', payments_path %>
+<%= link_to 'Destroy', @payment, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', payments_path %> |
+<%= link_to 'Home', root_path %>
