@@ -1,2 +1,6 @@
 <p><%= @user.name %></p><br>
+<p><%= @user.created_at %></p><br>
 <p><%= link_to('Sign Out', destroy_user_session_path, method: :delete) %></p>
+<p><%= link_to('Grouped Payments', payments_path) %></p>
+<p><%= link_to('Ungrouped Payments', ungrouped_payments_path) %></p>
+<p><%= link_to('Groups', groups_path) %></p>
