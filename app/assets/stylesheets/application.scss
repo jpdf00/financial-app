@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.height-full {
+ height: 100vh;
+}
+
+.gradient {
+  background: linear-gradient(to bottom left, #13335c , #3778c2)
+}

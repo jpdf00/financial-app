@@ -2,7 +2,7 @@
 
 <td><%= @payment.name %></td>
 <td>$ <%= @payment.amount %></td>
-<td><%= @payment.created_at %></td>
+<td><%= @payment.created_at.strftime("%d %B %Y") %></td>
 
 <div>
 <% @groups.each do |group| %>

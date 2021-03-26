@@ -12,7 +12,7 @@
   <tbody>
     <% @payments.each do |payment| %>
       <tr>
-        <td><%= link_to "#{tag.img src: payment.groups.first.icon} #{payment.name} $ #{payment.amount} #{payment.created_at}", payment %></td>
+        <td><%= link_to "#{tag.img src: payment.groups.first.icon} #{payment.name} $ #{payment.amount} #{payment.created_at.strftime("%d %B %Y")}", payment %></td>
       </tr>
     <% end %>
   </tbody>
