@@ -1,7 +1,7 @@
 class GroupedPaymentsController < ApplicationController
   before_action :set_grouped_payment, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-  
+
   # GET /grouped_payments or /grouped_payments.json
   def index
     @grouped_payments = GroupedPayment.all
@@ -23,10 +23,11 @@ class GroupedPaymentsController < ApplicationController
   # POST /grouped_payments or /grouped_payments.json
   def create
     @grouped_payment = GroupedPayment.new(grouped_payment_params)
+    @payment = Payment.find(@grouped_payment.payment_id)
 
     respond_to do |format|
       if @grouped_payment.save
-        format.html { redirect_to @grouped_payment, notice: "Grouped payment was successfully created." }
+        format.html { redirect_to @payment, notice: "Grouped payment was successfully created." }
         format.json { render :show, status: :created, location: @grouped_payment }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -65,6 +66,6 @@ class GroupedPaymentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def grouped_payment_params
-      params.fetch(:grouped_payment, {})
+      params.required(:grouped_payment).permit(:group_id, :payment_id)
     end
 end

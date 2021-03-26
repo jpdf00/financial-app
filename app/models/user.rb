@@ -14,4 +14,12 @@ class User < ApplicationRecord
                     length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+
+  def grouped
+    authored_payments.joins(:grouped_payments).order('name DESC').group("payments.id").map{ |payment| payment unless payment.groups.empty? }.compact
+  end
+
+  def ungrouped
+    authored_payments.order('name DESC').map{ |payment| payment if payment.groups.empty? }.compact
+  end
 end

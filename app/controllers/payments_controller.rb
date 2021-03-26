@@ -4,17 +4,19 @@ class PaymentsController < ApplicationController
 
   # GET /payments or /payments.json
   def index
-    @payments = Payment.all
+    @payments = current_user.grouped
+    @total_amout = @payments.map(&:amount).inject(:+)
   end
 
 # GET /ungrouped_payments or /ungrouped_payments.json
   def ungrouped_index
-    @payments = Payment.all
+    @payments = current_user.ungrouped
+    @total_amout = @payments.map(&:amount).inject(:+)
   end
 
   # GET /payments/1 or /payments/1.json
   def show
-    @groups = Group.all
+    @groups = Group.all.order('name ASC')
     @grouped_payment = GroupedPayment.new
   end
 
