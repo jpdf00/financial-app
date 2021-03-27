@@ -13,6 +13,11 @@
  *= require_tree .
  *= require_self
  */
+$navbar-light-color:                #fff;
+$navbar-light-hover-color:          #13335c;
+$navbar-light-toggler-icon-bg:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-light-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+$navbar-light-toggler-border-color: #13335c;
+$primary: #3778c2;
 
 body {
   font-family: 'Lato', sans-serif;
@@ -24,4 +29,12 @@ body {
 
 .gradient {
   background: linear-gradient(to bottom left, #13335c , #3778c2)
+}
+
+.new-bg-blue {
+  background-color: #3778c2;
+}
+
+.new-bg-grey {
+  background-color: #f5f6f8;
 }
