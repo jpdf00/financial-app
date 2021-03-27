@@ -1,21 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class="new-bg-grey height-full">
+  <div class="card mt-3 mx-2 flex-row p-2">
+    <% unless @payment.groups.empty? %>
+    <div class="align-self-start">
+      <%= tag.img src: @payment.groups.first.icon, class: 'square-big' %>
+    </div>
+    <% end %>
+    <div class="mx-2 d-flex flex-column justify-content-between w-100">
+      <div class="d-flex w-100 justify-content-between align-items-center pt-1 fs-5">
+        <p class="text-black-50"><%= @payment.name %></p>
+        <p class="fs-bold text-dark">$<%= @payment.amount %></p>
+      </div>
+      <small class="text-black-50 align-self-start">
+        <%= @payment.created_at.strftime("%d %B %Y") %>
+      </small>
+    </div>
+  </div>
 
-<td><%= @payment.name %></td>
-<td>$ <%= @payment.amount %></td>
-<td><%= @payment.created_at.strftime("%d %B %Y") %></td>
-
-<div>
-<% @groups.each do |group| %>
-  <%= group.name %>
-  <%= form_for @grouped_payment do |f| %>
-    <%= f.hidden_field :group_id, value: group.id %>
-    <%= f.hidden_field :payment_id, value: @payment.id %>
-    <%= f.submit %>
+  <div>
+  <% @groups.each do |group| %>
+    <%= group.name %>
+    <%= form_for @grouped_payment do |f| %>
+      <%= f.hidden_field :group_id, value: group.id %>
+      <%= f.hidden_field :payment_id, value: @payment.id %>
+      <%= f.submit %>
+    <% end %>
   <% end %>
-<% end %>
-</div>
+  </div>
 
-<%= link_to 'Edit', edit_payment_path(@payment) %> |
-<%= link_to 'Destroy', @payment, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', payments_path %> |
-<%= link_to 'Home', root_path %>
+  <%= link_to 'Edit', edit_payment_path(@payment) %> |
+  <%= link_to 'Destroy', @payment, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'Back', payments_path %> |
+  <%= link_to 'Home', root_path %>
+</div>
