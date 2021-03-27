@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
   # GET /groups or /groups.json
   def index
     @groups = current_user.groups.order('name ASC')
+    @total_amount = @groups.count(:name)
   end
 
   # GET /groups/1 or /groups/1.json

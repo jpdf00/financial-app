@@ -2,20 +2,12 @@
 <div class="new-bg-grey height-full">
   <div class="card">
     <div class="card-body d-flex justify-content-between align-items-center p-2">
-      <h2 class="fs-6 m-0 p-0">Total Spent</h2>
-      <p class="m-0 p-0">$ <%= @total_amout %></p>
+      <h2 class="fs-6 m-0 p-0 text-black-50">Total Spent</h2>
+      <p class="m-0 p-0 fw-bold">$<%= @total_amount %></p>
     </div>
   </div>
-  <% @payments.each do |payment| %>
-    <%= link_to(payment, class: 'text-decoration-none') do %>
-      <div class="card mt-3 mx-2">
-        <%= tag.img src: payment.groups.first.icon, class: 'square' %>
-        <%= payment.name %>
-        $<%= payment.amount %>
-        <%= payment.created_at.strftime("%d %B %Y") %>
-      </div>
-    <% end %>
-  <% end %>
+  <%= render @payments %>
 
-  <%= button_to 'New Payment', new_payment_path, method: :get, class: 'fixed-bottom w-100' %>
+
+  <%= button_to 'New Payment', new_payment_path, method: :get, class: 'fixed-bottom w-100 btn-height new-bg-green text-white rounded-top border-none' %>
 </div>
