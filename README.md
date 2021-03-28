@@ -53,7 +53,7 @@ From there you will visit your profile and see 3 links:
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Financial App Live!](https://financial-app-jpdf00.herokuapp.com/)
 
 
 ## Getting Started
