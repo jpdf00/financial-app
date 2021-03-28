@@ -1,16 +1,5 @@
 <div class="new-bg-grey height-full">
   <%= form_with(model: group, local: true) do |f| %>
-    <% if group.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
-
-        <ul>
-        <% group.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
 
     <div class="field">
       <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'Name', class: 'form-control mt-4' %>
@@ -19,6 +8,10 @@
     <div class="field">
       <%= f.url_field :icon, placeholder: 'Icon url', class: 'form-control' %>
     </div>
+
+    <br>
+
+    <%= show_form_errors(group) %>
 
     <div class="actions">
       <%= f.submit "Save Category", class: 'fixed-bottom w-100 btn-height new-bg-green text-white rounded-top border-none fs-5' %>

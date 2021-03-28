@@ -16,10 +16,10 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
 
   def grouped
-    authored_payments.joins(:grouped_payments).order('name DESC').group("payments.id").map{ |payment| payment unless payment.groups.empty? }.compact
+    authored_payments.joins(:grouped_payments).order('name DESC').where('grouped_payments.group_id >= 1').group('payments.id')
   end
 
   def ungrouped
-    authored_payments.order('name DESC').map{ |payment| payment if payment.groups.empty? }.compact
+    authored_payments.includes(:grouped_payments).order('name DESC').map{ |payment| payment if payment.grouped_payments.empty? }.compact
   end
 end

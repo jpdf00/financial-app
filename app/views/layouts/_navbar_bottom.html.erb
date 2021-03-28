@@ -1,0 +1,13 @@
+<div class="container-fluid justify-content-center py-1">
+  <ul class="nav justify-content-center">
+    <li class="nav-item text-white-50 me-1">
+      <%= link_to_unless_current('Payments', payments_path,  class: 'text-white text-decoration-none') %> |
+    </li>
+    <li class="nav-item text-white-50 mx-1">
+      <%= link_to_unless_current('External Payments', ungrouped_payments_path,  class: 'text-white text-decoration-none') %> |
+    </li>
+    <li class="nav-item text-white-50 ms-1">
+      <%= link_to_unless_current('Categories', groups_path,  class: 'text-white text-decoration-none') %>
+    </li>
+  </ul>
+</div>

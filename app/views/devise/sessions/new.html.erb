@@ -10,6 +10,8 @@
     </div>
 
     <br>
+    <p class="text-danger m-auto text-center"><%= alert %></p>
+    <br>
 
     <% if devise_mapping.rememberable? %>
       <div class="field d-flex justify-content-center">
@@ -27,4 +29,6 @@
   <div class="field d-flex align-items-center flex-column">
     <%= render "devise/shared/links" %>
   </div>
+
+
 </div>

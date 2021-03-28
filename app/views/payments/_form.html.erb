@@ -1,16 +1,5 @@
 <div class="new-bg-grey height-full">
   <%= form_with(model: payment, local: true) do |f| %>
-    <% if payment.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
-
-        <ul>
-        <% payment.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
 
     <div class="field">
       <%= f.text_field :name, autofocus: true, autocomplete: 'name', placeholder: 'Name', class: 'form-control mt-4' %>
@@ -19,6 +8,10 @@
     <div class="field">
       <%= f.number_field :amount,  step: 0.01, placeholder: 'Amount', class: 'form-control' %>
     </div>
+
+    <br>
+
+    <%= show_form_errors(payment) %>
 
     <div class="actions">
       <%= f.submit "Save Expense", class: 'fixed-bottom w-100 btn-height new-bg-green text-white rounded-top border-none fs-5' %>
