@@ -94,5 +94,5 @@ test:
 production:
   <<: *default
   database: financia_app_production
-  username: postgres
-  password: admin
+  username: financia_app
+  password: <%= ENV['FINANCIAL_APP_DATABASE_PASSWORD'] %>
