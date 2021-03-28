@@ -6,7 +6,11 @@ module ApplicationHelper
   end
 
   def show_navbar_bottom
-    return if current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(edit_user_registration_path)
+    if current_page?(new_user_session_path) ||
+       current_page?(new_user_registration_path) ||
+       current_page?(edit_user_registration_path)
+      return
+    end
 
     render 'layouts/navbar_bottom'
   end
@@ -22,8 +26,9 @@ module ApplicationHelper
   def show_form_errors(box_var)
     out = ''
     if box_var.errors.any?
-      out += "<div class=\"m-2 p-2 bg-danger text-white\" id=\"error_explanation\"><h2 class=\"fs-5\">#{pluralize(box_var.errors.count,
-                                                            'error')} prohibited this event from being saved:</h2><ul>"
+      out += '<div class=\"m-2 p-2 bg-danger text-white\" id=\"error_explanation\">'
+      out += "<h2 class=\"fs-5\">#{pluralize(box_var.errors.count,
+                                             'error')} prohibited this event from being saved:</h2><ul>"
       box_var.errors.full_messages.each do |message|
         out += "<li>#{message}</li>"
       end
