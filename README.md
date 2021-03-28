@@ -2,11 +2,9 @@
 
 # Financial App
 
-> One paragraph statement about the project.
+> Financial App is an app developed to help you control your expenses!.
 
 ![screenshot](./app/assets/images/app_screenshot.png)
-
-Financial App is an app developed to help you control your expenses!.
 
 On your first access you will create your account.
 From there you will visit your profile and see 3 links:
