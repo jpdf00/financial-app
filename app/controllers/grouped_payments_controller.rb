@@ -51,9 +51,10 @@ class GroupedPaymentsController < ApplicationController
 
   # DELETE /grouped_payments/1 or /grouped_payments/1.json
   def destroy
+    @payment = Payment.find(@grouped_payment.payment_id)
     @grouped_payment.destroy
     respond_to do |format|
-      format.html { redirect_to grouped_payments_url, notice: "Grouped payment was successfully destroyed." }
+      format.html { redirect_to @payment, notice: "Grouped payment was successfully destroyed." }
       format.json { head :no_content }
     end
   end

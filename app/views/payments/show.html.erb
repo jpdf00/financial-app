@@ -16,19 +16,12 @@
     </div>
   </div>
 
-  <div>
-  <% @groups.each do |group| %>
-    <%= group.name %>
-    <%= form_for @grouped_payment do |f| %>
-      <%= f.hidden_field :group_id, value: group.id %>
-      <%= f.hidden_field :payment_id, value: @payment.id %>
-      <%= f.submit %>
-    <% end %>
-  <% end %>
+  <div class="d-flex flex-column mt-3">
+    <%= group_btns(@groups, @payment) %>
   </div>
 
-  <%= link_to 'Edit', edit_payment_path(@payment) %> |
-  <%= link_to 'Destroy', @payment, method: :delete, data: { confirm: 'Are you sure?' } %> |
-  <%= link_to 'Back', payments_path %> |
-  <%= link_to 'Home', root_path %>
+  <div class="fixed-bottom d-flex w-100 flex-column">
+    <%= button_to 'Edit Expense', edit_payment_path(@payment), method: :get, class: 'w-100 btn-height new-bg-green text-white rounded-top border-none fs-5' %>
+    <%= button_to 'Destroy Expense', @payment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'w-100 btn-height new-bg-green text-white rounded-top border-none fs-5' %>
+  </div>
 </div>

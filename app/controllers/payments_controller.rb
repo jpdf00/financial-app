@@ -16,7 +16,7 @@ class PaymentsController < ApplicationController
 
   # GET /payments/1 or /payments/1.json
   def show
-    @groups = Group.all.order('name ASC')
+    @groups = current_user.groups.all.order('name ASC')
     @grouped_payment = GroupedPayment.new
   end
 

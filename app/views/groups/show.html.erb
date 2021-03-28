@@ -27,9 +27,8 @@
     </div>
   <% end %>
 
-  <%= link_to 'Edit', edit_group_path(@group) %> |
-  <%= link_to 'Destroy', @group, method: :delete, data: { confirm: 'Are you sure?' } %> |
-  <%= link_to 'Back', groups_path %> |
-  <%= link_to 'Home', root_path %>
-
+  <div class="fixed-bottom d-flex w-100 flex-column">
+    <%= button_to 'Edit Category', edit_group_path(@group), method: :get, class: 'w-100 btn-height new-bg-green text-white rounded-top border-none fs-5' %>
+    <%= button_to 'Destroy Category', @group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'w-100 btn-height new-bg-green text-white rounded-top border-none fs-5' %>
+  </div>
 </div>

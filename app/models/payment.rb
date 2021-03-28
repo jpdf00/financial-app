@@ -5,4 +5,8 @@ class Payment < ApplicationRecord
 
   validates :name, presence: true, length: { in: 4..32 }
   validates :amount, numericality: true
+
+  def grouped_payment_find(group)
+    grouped_payments.find_by(group_id: group.id)
+  end
 end
