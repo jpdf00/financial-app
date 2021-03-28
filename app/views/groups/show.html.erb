@@ -1,4 +1,4 @@
-<div class="new-bg-grey height-full">
+<div class="container-fluid new-bg-grey height-full">
   <div class="card mt-3 mx-2 flex-row p-2  mb-3">
     <div class="align-self-start">
       <%= tag.img src: @group.icon, class: 'square-big' %>
@@ -14,7 +14,7 @@
   </div>
 
   <%= show_payments(@group) %>
-  
+
   <div class="fixed-bottom d-flex w-100 flex-column">
     <%= button_to 'Edit Category', edit_group_path(@group), method: :get, class: 'w-100 btn-height new-bg-green text-white rounded-top border-none fs-5' %>
     <%= button_to 'Destroy Category', @group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'w-100 btn-height new-bg-green text-white rounded-top border-none fs-5' %>
