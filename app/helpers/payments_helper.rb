@@ -11,4 +11,12 @@ module PaymentsHelper
     end
     out.html_safe
   end
+
+  def show_icon(payment)
+    return if payment.groups.empty?
+
+    tag.div class: 'align-self-start' do
+      tag.img src: payment.groups.first.icon, class: 'square-big'
+    end
+  end
 end

@@ -1,10 +1,6 @@
 <div class="new-bg-grey height-full">
   <div class="card mt-3 mx-2 flex-row p-2">
-    <% unless @payment.groups.empty? %>
-    <div class="align-self-start">
-      <%= tag.img src: @payment.groups.first.icon, class: 'square-big' %>
-    </div>
-    <% end %>
+    <%= show_icon(@payment) %>
     <div class="mx-2 d-flex flex-column justify-content-between w-100">
       <div class="d-flex w-100 justify-content-between align-items-center pt-1 fs-5">
         <p class="text-black-50"><%= @payment.name %></p>
