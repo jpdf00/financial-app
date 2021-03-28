@@ -94,5 +94,5 @@ test:
 production:
   <<: *default
   database: financia_app_production
-  username: financia_app
-  password: <%= ENV['ROR_SOCIAL_SCAFFOLD_DATABASE_PASSWORD'] %>
+  username: postgres
+  password: admin
