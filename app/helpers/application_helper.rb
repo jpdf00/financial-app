@@ -37,47 +37,83 @@ module ApplicationHelper
     out.html_safe
   end
 
+  def email_changed(resource)
+    if resource.try(:unconfirmed_email?)
+      tag.p "We're contacting you to notify you that your email is being changed to #{@resource.unconfirmed_email}."
+    else
+      tag.p "We're contacting you to notify you that your email has been changed to #{@resource.email}."
+    end
+  end
+
   def shared_links
     out = ''
-    if controller_name != 'sessions'
-      out += link_to "Log in", new_session_path(resource_name), class: 'text-black-50 text-decoration-none mb-2'
-      out += tag.br
-    end
 
-    if devise_mapping.registerable? && controller_name != 'registrations'
-      out += link_to "Create New Account", new_registration_path(resource_name), class: 'text-black-50 text-decoration-none mb-2'
-      out += tag.br
-    end
+    out += login_link
 
-    if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-      out += link_to "Forgot your password?", new_password_path(resource_name), class: 'text-black-50 text-decoration-none mb-2'
-      out += tag.br
-    end
+    out += signup_link
 
-    if devise_mapping.confirmable? && controller_name != 'confirmations'
-      out += link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class: 'text-black-50 text-decoration-none mb-2'
-      out += tag.br
-    end
+    out += recover_link
 
-    if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
-      out += link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name), class: 'text-black-50 text-decoration-none mb-2'
-      out += tag.br
-    end
+    out += confirm_link
+
+    out += unlock_link
 
     if devise_mapping.omniauthable?
       resource_class.omniauth_providers.each do |provider|
-        out += link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider)
+        out += link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}",
+                       omniauth_authorize_path(resource_name, provider)
         out += tag.br
       end
     end
     out.html_safe
   end
 
-  def email_changed(resource)
-     if resource.try(:unconfirmed_email?)
-      tag.p "We're contacting you to notify you that your email is being changed to #{@resource.unconfirmed_email}."
-     else
-      tag.p "We're contacting you to notify you that your email has been changed to #{@resource.email}."
-     end
+  def login_link
+    out = ''
+    if controller_name != 'sessions'
+      out += link_to 'Log in', new_session_path(resource_name), class: 'text-black-50 text-decoration-none mb-2'
+      out += tag.br
+    end
+    out.html_safe
+  end
+
+  def signup_link
+    out = ''
+    if devise_mapping.registerable? && controller_name != 'registrations'
+      out += link_to 'Create New Account', new_registration_path(resource_name),
+                     class: 'text-black-50 text-decoration-none mb-2'
+      out += tag.br
+    end
+    out.html_safe
+  end
+
+  def recover_link
+    out = ''
+    if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+      out += link_to 'Forgot your password?', new_password_path(resource_name),
+                     class: 'text-black-50 text-decoration-none mb-2'
+      out += tag.br
+    end
+    out.html_safe
+  end
+
+  def confirm_link
+    out = ''
+    if devise_mapping.confirmable? && controller_name != 'confirmations'
+      out += link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name),
+                     class: 'text-black-50 text-decoration-none mb-2'
+      out += tag.br
+    end
+    out.html_safe
+  end
+
+  def unlock_link
+    out = ''
+    if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
+      out += link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name),
+                     class: 'text-black-50 text-decoration-none mb-2'
+      out += tag.br
+    end
+    out.html_safe
   end
 end
