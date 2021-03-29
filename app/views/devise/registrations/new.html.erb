@@ -1,4 +1,4 @@
-<div class="container-fluid new-bg-grey height-full">
+<div class="container-fluid new-bg-grey height-full px-0">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
     <div class="field">
@@ -29,6 +29,6 @@
   <% end %>
 
   <div class="field d-flex align-items-center flex-column">
-    <%= render "devise/shared/links" %>
+    <%= shared_links %>
   </div>
 </div>

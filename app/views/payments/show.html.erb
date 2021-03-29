@@ -1,4 +1,4 @@
-<div class="container-fluid new-bg-grey height-full px-0">
+<div class="container-fluid new-bg-grey height-scroll px-0">
   <div class="card mt-3 mx-2 flex-row p-2">
     <%= show_icon(@payment) %>
     <div class="mx-2 d-flex flex-column justify-content-between w-100">
@@ -15,7 +15,9 @@
   <div class="d-flex flex-column mt-3">
     <%= group_btns(@groups, @payment) %>
   </div>
-
+  <div class="btn-height pb-5 pt-5"></div>
+  <div class="btn-height pb-5 pt-5"></div>
+  
   <div class="fixed-bottom d-flex w-100 flex-column">
     <%= button_to 'Edit Expense', edit_payment_path(@payment), method: :get, class: 'w-100 btn-height new-bg-green text-white rounded-top border-none fs-5' %>
     <%= button_to 'Destroy Expense', @payment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'w-100 btn-height new-bg-green text-white rounded-top border-none fs-5' %>

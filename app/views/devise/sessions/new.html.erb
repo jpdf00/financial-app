@@ -1,4 +1,4 @@
-<div class="container-fluid new-bg-grey height-full">
+<div class="container-fluid new-bg-grey height-full px-0">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
     <div class="field">
@@ -13,12 +13,12 @@
     <p class="text-danger mx-3 text-center"><%= alert %></p>
     <br>
 
-    <% if devise_mapping.rememberable? %>
-      <div class="field d-flex justify-content-center">
-        <%= f.check_box :remember_me, class: 'form-check-input me-1' %>
-        <%= f.label :remember_me %>
-      </div>
-    <% end %>
+
+    <div class="field d-flex justify-content-center">
+      <%= f.check_box :remember_me, class: 'form-check-input me-1' %>
+      <%= f.label :remember_me %>
+    </div>
+
 
     <br>
 
@@ -27,7 +27,7 @@
     </div>
   <% end %>
   <div class="field d-flex align-items-center flex-column">
-    <%= render "devise/shared/links" %>
+    <%= shared_links %>
   </div>
 
 

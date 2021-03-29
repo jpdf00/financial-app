@@ -69,11 +69,15 @@ To get a local copy up and running follow these simple example steps.
 
 ### Setup
 
-- Clone this repo to your local machine.
+- On the top of this repo click on the button named "Clone"
+- Copy the HTTP URL or SSH.
+- On the terminal type `git clone <copied-value>` where <copied-value> is the value you copied on the previous step.
 - On the terminal `cd` to the folder you cloned.
 
 ### Install
 
+- Open the file 'database.yml' on the folder 'config'
+- On development: and on test: change the values of username: and password: to the username and password of your local postgres server.
 - On the terminal type `rails db:create`.
 - On the terminal type `rails db:migrate`.
 
