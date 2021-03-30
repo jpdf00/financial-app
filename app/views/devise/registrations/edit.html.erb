@@ -1,0 +1,37 @@
+<div class="container-fluid new-bg-grey height-full px-0">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+    <div class="field">
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'Enter your Name', class: 'form-control mt-4' %>
+    </div>
+
+    <div class="field">
+      <%= f.email_field :email, autocomplete: "email", placeholder: 'Enter your Email', class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Enter new Password (8 characters minimum) ', class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Confirm new Password (8 characters minimum) ', class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :current_password, autocomplete: "current-password", placeholder: 'Enter current Password', class: 'form-control' %>
+    </div>
+
+    <br>
+
+    <%= show_form_errors(resource) %>
+
+    <br>
+
+    <div class="actions">
+      <%= f.submit "Save Account", class: 'fixed-bottom btn-height w-100 new-bg-green text-white rounded-top border-none fs-5 mb-5' %>
+    </div>
+  <% end %>
+
+
+  <%= button_to  'Cancel my account', registration_path(resource_name), data: { confirm: "This Process is irreversible. Are you sure?" }, method: :delete, class: 'mt-5 fixed-bottom w-100 bg-danger text-white rounded-top border-none fs-5' %>
+</div>

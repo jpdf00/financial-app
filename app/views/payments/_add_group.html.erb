@@ -1,0 +1,5 @@
+<%= form_for @grouped_payment do |f| %>
+  <%= f.hidden_field :group_id, value: group.id %>
+  <%= f.hidden_field :payment_id, value: @payment.id %>
+  <%= f.submit "Add to #{group.name}", class: 'w-100 new-bg-green text-white rounded-top border-none fs-5'  %>
+<% end %>

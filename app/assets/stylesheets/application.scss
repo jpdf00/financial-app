@@ -13,3 +13,49 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.height-scroll {
+  height: 2000px;
+}
+
+.height-full {
+  height: 100vh;
+}
+
+.gradient {
+  background: linear-gradient(to bottom left, #13335c, #3778c2);
+}
+
+.new-bg-blue {
+  background-color: #3778c2;
+}
+
+.new-bg-grey {
+  background-color: #f5f6f8;
+}
+
+.new-bg-green {
+  background-color: #60b625;
+}
+
+.btn-height {
+  height: 75px;
+}
+
+.square {
+  width: 35px;
+  height: 35px;
+}
+
+.square-big {
+  width: 70px;
+  height: 70px;
+}
+
+.fs-7 {
+  font-size: 15px;
+}
