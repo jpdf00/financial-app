@@ -1,0 +1,20 @@
+<div class="container-fluid new-bg-grey height-full px-0">
+  <%= form_with(model: group, local: true) do |f| %>
+
+    <div class="field">
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'Name', class: 'form-control mt-4' %>
+    </div>
+
+    <div class="field">
+      <%= f.url_field :icon, placeholder: 'Icon url', class: 'form-control' %>
+    </div>
+
+    <br>
+
+    <%= show_form_errors(group) %>
+
+    <div class="actions">
+      <%= f.submit "Save Category", class: 'fixed-bottom w-100 btn-height new-bg-green text-white rounded-top border-none fs-5' %>
+    </div>
+  <% end %>
+</div>
